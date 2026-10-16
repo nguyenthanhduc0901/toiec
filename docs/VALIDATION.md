@@ -42,3 +42,9 @@ For UI changes, rerun relevant browser checks. For changes only to documentation
 - Manual Play loaded Part 2 with `#t=1.9` and played at 2.26 seconds after the interaction. Next also used the fragment and continued playback after metadata loaded.
 - Switching to Part 1 retained the original URL without a time fragment and started at zero.
 - Build and dataset checks passed; no saved answers were changed during this check.
+
+## Full question map — 2026-10-16
+
+- Removed map pagination and its state, markup, and styles. Every question matching the current Part and filters is shown in one grid.
+- Browser verified 250 map buttons for Part 2, 540 for Part 7, and 54 for Part 7 filtered to Test 1. Selecting question 540 worked and disabled Next at the end.
+- At 390px, all 250 Part 2 buttons remained in the grid without horizontal page overflow. Build and dataset checks passed; no answers were changed.
