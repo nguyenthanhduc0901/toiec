@@ -36,3 +36,9 @@ For UI changes, rerun relevant browser checks. For changes only to documentation
 - Direct mouse selection of an answer left the Next button at the same viewport coordinates before/after feedback: desktop (1263.77, 383.58), mobile (239.77, 52.14).
 - Scrolling through the explanation pinned the navigation bar to viewport top. At 390px, document width remained 375px without horizontal overflow.
 - Navigation still triggered audio autoplay. QA answers on the separate localhost origin were reset after testing.
+
+## Part 2 start offset — 2026-10-16
+
+- Manual Play loaded Part 2 with `#t=1.9` and played at 2.26 seconds after the interaction. Next also used the fragment and continued playback after metadata loaded.
+- Switching to Part 1 retained the original URL without a time fragment and started at zero.
+- Build and dataset checks passed; no saved answers were changed during this check.
