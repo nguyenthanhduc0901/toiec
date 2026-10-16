@@ -28,7 +28,7 @@ cd toiec
 - Trong mỗi Part, luyện liên tục Test 1 → Test 10.
 - Chọn một đáp án để hiện ngay đáp án đúng và lời giải nguồn. Lựa chọn khóa sau lượt đầu; có nút làm lại Part.
 - Giữ chung nội dung/audio cho các câu thuộc cùng một nhóm.
-- Audio có thể nghe lại; đổi câu trong cùng nhóm giữ nguyên trình phát.
+- Audio tự phát khi chuyển sang nhóm nghe mới bằng nút trước/sau, bản đồ câu, đổi Part hoặc bộ lọc; đổi câu trong cùng nhóm giữ nguyên vị trí và trạng thái phát. Khi mới mở trang, bấm Play để bắt đầu nghe.
 - Lọc theo đề, câu chưa làm, câu sai, câu đánh dấu; có bản đồ câu và điều hướng trước/sau.
 - Lưu tiến độ tự động trong trình duyệt; xuất/nhập JSON để chuyển tiến độ sang máy khác.
 - Giao diện thích ứng màn hình máy tính và điện thoại.

@@ -20,3 +20,12 @@ Verified behavior:
 `npm run check` provides portable repeatable checks for all dataset records and the generated HTML. It does not download all media files or certify the source's answer keys independently. Media availability may change after the original verification.
 
 For UI changes, rerun relevant browser checks. For changes only to documentation, use ordinary review rather than introducing browser tests.
+
+## Autoplay fix — 2026-10-16
+
+- Reproduced the original bug: Next changed the audio URL, but the new player remained paused at zero.
+- After the fix, Next, Part switching, selecting another test, and question-map navigation start the new audio without a Play click.
+- Part 3 navigation from original question 32 to 33 retained the same audio URL and advanced from 3.69s to 4.00s instead of restarting. Question 35 started the next group's recording.
+- Test 1 → Test 2 starts the new recording; Next remains disabled on the final question.
+- Initial page load remains paused. Correct/wrong feedback, explanation visibility, first-choice locking, bookmarks, and persistence after reload passed on a separate QA origin; QA answers were reset afterwards.
+- At a 390px viewport, document width did not exceed the viewport. Build and dataset checks passed.
