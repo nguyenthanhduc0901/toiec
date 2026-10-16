@@ -12,3 +12,4 @@ browser-profile/
 playwright/.auth/
 *-tien-do.json
 *-progress.json
+!toeic-2024-tien-do.json
