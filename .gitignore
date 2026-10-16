@@ -1,0 +1,14 @@
+node_modules/
+.env
+.env.*
+!.env.example
+*.log
+.DS_Store
+Thumbs.db
+work/
+tmp/
+private/
+browser-profile/
+playwright/.auth/
+*-tien-do.json
+*-progress.json

@@ -1,0 +1,13 @@
+{
+  "name": "toiec-studio-2024",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Local TOEIC practice: 10 ETS 2024 tests, 2,000 questions with original answers and explanations.",
+  "type": "module",
+  "engines": { "node": ">=18" },
+  "scripts": {
+    "build": "node scripts/build.mjs",
+    "check": "node scripts/check.mjs",
+    "start": "node scripts/serve.mjs"
+  }
+}

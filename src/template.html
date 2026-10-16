@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="vi">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="referrer" content="no-referrer">
+<title>TOEIC Studio · ETS 2024</title>
+<style>/*__CSS__*/</style>
+</head>
+<body>
+<aside class="sidebar">
+  <a class="brand" href="#"><span class="brand-icon">t.</span><span>TOEIC<span class="brand-sub">STUDIO / LOCAL</span></span></a>
+  <div class="collection"><span class="eyebrow">BỘ ĐỀ CỦA BẠN</span><h2>ETS 2024 <span>10 đề</span></h2><p>Luyện từng Part. Hiểu từng câu.</p></div>
+  <div class="side-label">CHỌN PHẦN LUYỆN</div><nav id="parts" aria-label="Chọn Part"></nav>
+  <div class="side-bottom"><span class="local-dot"></span> Tiến độ lưu trên máy này<p>Nội dung và media từ Zenlish.<br>Ảnh và audio cần kết nối Internet.</p><a href="https://zenlishtoeic.vn/test-online-new/" target="_blank" rel="noopener">Mở trang nguồn ↗</a></div>
+</aside>
+<main>
+  <header class="topbar"><span>KHÔNG GIAN LUYỆN TẬP <span class="header-divider">/</span> <strong>ETS 2024</strong></span><div><button id="data-button" class="quiet">Dữ liệu & sao lưu</button><button id="reset" class="quiet">Làm lại Part</button></div></header>
+  <section class="page-head"><div><div class="eyebrow">LUYỆN THEO PART · 10 ĐỀ LIÊN TIẾP</div><h1 id="part-title"></h1><p id="part-desc"></p></div><div class="stats"><div><strong id="done-count">0</strong><span>Đã làm</span></div><div><strong id="right-count">0</strong><span>Đúng</span></div><div><strong id="accuracy">—</strong><span>Chính xác</span></div></div></section>
+  <div class="coverage" id="coverage"></div>
+  <section class="toolbar"><label>Đề <select id="test-filter"><option value="all">Tất cả 10 đề</option></select></label><label>Hiển thị <select id="status-filter"><option value="all">Tất cả câu hỏi</option><option value="new">Chưa làm</option><option value="wrong">Đã chọn sai</option><option value="bookmarked">Đã đánh dấu</option><option value="verified">Có đáp án gốc</option></select></label><span class="toolbar-spacer"></span><span id="position"></span></section>
+  <div class="progress-track"><div id="progress-bar"></div></div>
+  <section id="empty" hidden><h2>Không có câu hỏi phù hợp</h2><p>Đổi bộ lọc để tiếp tục luyện tập.</p></section>
+  <section class="workspace" id="workspace">
+    <article class="stimulus card"><div class="card-heading"><span id="stimulus-label">NỘI DUNG CÂU HỎI</span><span id="group-range" class="tag"></span></div><div id="media"></div><div id="passage" class="rich"></div><div id="stimulus-note"></div></article>
+    <article class="question card"><div class="question-meta"><span class="test-badge" id="test-badge"></span><button id="bookmark" aria-pressed="false" title="Đánh dấu câu hỏi">☆</button></div><h2 id="question-number"></h2><div id="question-title" class="rich question-title"></div><div id="choices" role="group" aria-label="Chọn đáp án"></div><div id="feedback" aria-live="polite"></div><div class="question-foot"><span id="original-number"></span><a id="source-link" target="_blank" rel="noopener">Đề gốc ↗</a></div></article>
+  </section>
+  <div class="navigation"><button id="prev" class="secondary">← Câu trước</button><span id="nav-hint">Chọn đáp án để xem lời giải ngay</span><button id="next" class="primary">Câu tiếp theo →</button></div>
+  <section class="map-section"><div class="map-heading"><h3>Bản đồ câu hỏi <span id="map-total"></span></h3><div class="legend"><span><i class="legend-dot correct"></i>Đúng</span><span><i class="legend-dot wrong"></i>Sai</span><span><i class="legend-dot answered"></i>Chưa chấm</span></div></div><div id="question-map" class="question-map"></div><div id="map-pagination"></div></section>
+  <footer>TOEIC Studio · Bản luyện tập cá nhân · Không tự nộp bài hoặc thay đổi bài làm trên Zenlish.</footer>
+</main>
+<dialog id="data-dialog"><div class="dialog-head"><div><div class="eyebrow">THƯ VIỆN ETS 2024</div><h2>Dữ liệu & tiến độ</h2></div><button id="close-dialog" class="quiet" aria-label="Đóng">✕</button></div><p id="data-summary"></p><div class="table-scroll"><table><thead><tr><th>Đề</th><th>Câu hỏi</th><th>Đáp án</th><th>Lời giải</th></tr></thead><tbody id="data-rows"></tbody></table></div><p class="muted">Câu chưa có đáp án vẫn cho chọn và lưu lựa chọn; ứng dụng không tự đoán đáp án hay lời giải. Có thể bổ sung bằng tệp JSON xuất từ dữ liệu xem lại của Zenlish.</p><div class="dialog-actions"><button id="export-progress" class="secondary">Xuất tiến độ</button><label class="secondary file-button">Nhập tiến độ<input id="import-progress" type="file" accept="application/json,.json" hidden></label><label class="primary file-button">Bổ sung đáp án<input id="import-answers" type="file" accept="application/json,.json" hidden></label></div><p id="import-message" role="status"></p></dialog>
+<div id="toast" role="status" hidden></div>
+<script id="dataset" type="application/json">/*__DATA__*/</script>
+<script>/*__JS__*/</script>
+</body></html>
