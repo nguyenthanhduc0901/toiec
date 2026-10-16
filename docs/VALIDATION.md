@@ -29,3 +29,10 @@ For UI changes, rerun relevant browser checks. For changes only to documentation
 - Test 1 → Test 2 starts the new recording; Next remains disabled on the final question.
 - Initial page load remains paused. Correct/wrong feedback, explanation visibility, first-choice locking, bookmarks, and persistence after reload passed on a separate QA origin; QA answers were reset afterwards.
 - At a 390px viewport, document width did not exceed the viewport. Build and dataset checks passed.
+
+## Stable navigation — 2026-10-16
+
+- Previous/Next now sit above the question workspace, aligned right, in a sticky navigation bar.
+- Direct mouse selection of an answer left the Next button at the same viewport coordinates before/after feedback: desktop (1263.77, 383.58), mobile (239.77, 52.14).
+- Scrolling through the explanation pinned the navigation bar to viewport top. At 390px, document width remained 375px without horizontal overflow.
+- Navigation still triggered audio autoplay. QA answers on the separate localhost origin were reset after testing.
