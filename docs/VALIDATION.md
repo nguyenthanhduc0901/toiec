@@ -19,6 +19,18 @@ Verified behavior:
 
 `npm run check` provides portable repeatable checks for all dataset records and the generated HTML. It does not download all media files or certify the source's answer keys independently. Media availability may change after the original verification.
 
+## Two-year update
+
+- Both 2024 and 2026 contain 10 full tests, 2,000 questions, 2,000 original answers and 2,000 source explanations each.
+- Cross-year IDs are unique; the 2024 dataset and its stable IDs are unchanged.
+- The 2024/2026 selector updates dataset indexes, header/source labels, counts, progress and backup formats.
+- Year switching preserves independent answers, bookmarks, overrides and saved positions. Existing 2024 progress was checked without migration; 1,273 user answers were present and preserved during the update.
+- Backup import validates year, answer bounds, bookmarks, overrides, Part and positions; wrong-year imports are rejected. Export follows the selected year.
+- Correct-answer feedback and nonempty explanations were checked in all 140 combinations of year, test and Part.
+- Each year was checked for test-boundary navigation, shared-group display/audio, whole-group navigation, final-group guard and full 540-question Part 7 map.
+- Mobile rendering of the year switch was inspected at 390px without horizontal overflow.
+- All temporary QA choices were restored and the app reloaded after browser checks. User progress and raw authenticated material were not added to the update.
+
 For UI changes, rerun relevant browser checks. For changes only to documentation, use ordinary review rather than introducing browser tests.
 
 ## Autoplay fix — 2026-10-16

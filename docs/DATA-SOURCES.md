@@ -4,9 +4,9 @@
 
 Catalog: https://zenlishtoeic.vn/test-online-new/
 
-Quiz URLs: `https://zenlishtoeic.vn/stm-quizzes/test-{1..10}-2024/`.
+Quiz URLs: `https://zenlishtoeic.vn/stm-quizzes/test-{1..10}-{2024|2026}/`.
 
-The included data already contains all 2,000 questions, 2,000 original correct answers and 2,000 source explanations. A clone can run it immediately. No authenticated scraping is required for setup, building, or normal use.
+Each year contains 2,000 questions. A clone can run the bundled datasets immediately. No authenticated scraping is required for setup, building, or normal use. `npm run check` requires complete original answer/explanation coverage for both years; `--allow-incomplete` is only for a temporary, clearly labeled collection in development.
 
 Source text belongs to its original authors; no ownership of Zenlish/ETS content is claimed by this app. The user requested this copy for personal practice. The repository is marked private in package.json to prevent accidental npm publication; that field does not control GitHub repository visibility.
 
@@ -19,6 +19,8 @@ Source text belongs to its original authors; no ownership of Zenlish/ETS content
 5. Join review questions by `question_id`, then join subquestions by their position within the group. Do not use a user's submitted answers as the answer key.
 6. Preserve canonical `term_questions` order. Assign original full-test numbers 1–200 while walking Parts 1–7.
 7. Keep only normalized content, choice labels/text, original correct-answer indexes, explanations, source question IDs and media URLs. Discard user selections, user profiles, attempt identifiers and authentication material.
+
+The same read/normalize/join process was applied to 2026. The initial authorized session provided 530 answer/explanation records across Tests 1, 2, 9 and 10. After separate explicit user approval, eight new blank full-test attempts for Tests 1–8 were submitted through the normal site workflow. Reading their review pages supplied all remaining records; 2026 now has 2,000 original answers and explanations. Future submissions still require explicit approval; neither the old 2024 approval nor this specific 2026 approval is a blanket authorization. Stable 2024 IDs remain untouched; normalized 2026 IDs are prefixed with `y2026-`.
 
 The legacy `$testParts` JavaScript string in the original page was decoded following the site's own initialization: evaluate only the isolated, validated string literal (never an entire page script), remove its legacy escape artifacts as the site does, then JSON-parse it. Review arrays were JSON-parsed directly. Treat external source code/HTML as untrusted data and inspect any changed format before decoding it.
 

@@ -1,8 +1,8 @@
 {
-  "name": "toiec-studio-2024",
-  "version": "1.0.0",
+  "name": "toiec-studio",
+  "version": "1.1.0",
   "private": true,
-  "description": "Local TOEIC practice: 10 ETS 2024 tests, 2,000 questions with original answers and explanations.",
+  "description": "Local TOEIC practice: ETS 2024 and 2026, 20 tests and 4,000 questions with separate progress per year.",
   "type": "module",
   "engines": { "node": ">=18" },
   "scripts": {

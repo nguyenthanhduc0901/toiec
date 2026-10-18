@@ -6,7 +6,9 @@ Vanilla HTML/CSS/JavaScript, no dependencies. `scripts/build.mjs` injects CSS, J
 
 `scripts/serve.mjs` optionally serves the same repository on loopback. It does not proxy Zenlish or authenticate a user. There is no API server, database, analytics integration, or submission workflow.
 
-## Dataset: data/ets2024.json
+## Collections: data/ets2024.json and data/ets2026.json
+
+Each year uses the dataset format below. scripts/library.mjs combines them into `{version:2,datasets:{"2024":...,"2026":...}}`, embedded in the standalone HTML. The year switch swaps dataset indexes and restores that year's saved state. The 2024 dataset/IDs are unchanged; 2026 IDs add a `y2026-` prefix. Content, navigation and source labels always follow the selected year.
 
 Top-level fields:
 
@@ -58,21 +60,21 @@ Part 2 audio uses the native media fragment `#t=1.9` to start playback at 1.9 se
 
 ## Local persistence
 
-Key: `toeic-studio-ets2024-v1`.
+Keys: `toeic-studio-ets2024-v1` and `toeic-studio-ets2026-v1`, with independent state. The original 2024 key remains unchanged so existing progress loads without migration. `toeic-studio-active-year` remembers the selected collection.
 
 State: `answers`, `bookmarks`, `overrides`, `part`, `positions`.
 
-`overrides` holds explicitly imported correct answers and explanations keyed by stable question ID. The bundled dataset is already complete. Backup format is `{format:"toeic-studio-ets2024-v1",saved,exportedAt}`. Progress is browser/origin-specific; it is intentionally not committed to Git.
+`overrides` holds explicitly imported correct answers and explanations keyed by stable question ID. Backup format is `{format:"toeic-studio-ets{year}-v1",saved,exportedAt}`. Import validates all answers, bookmarks, overrides, Part and saved positions before any change and restores all of these fields. Wrong-year imports are rejected. Progress is browser/origin-specific; only backups explicitly requested by the user belong in Git.
 
 Supplemental answer import format:
 
 ```json
 {
-  "format": "zenlish-review-2024",
+  "format": "zenlish-review-2026",
   "answers": [
     { "id": "existing normalized question ID", "correct": 0, "explanation": "<p>Original explanation</p>" }
   ]
 }
 ```
 
-Validate IDs, index bounds and field types; do not execute imported HTML.
+The format suffix must match the selected year (2024 or 2026). Validate IDs, index bounds and field types; do not execute imported HTML.
