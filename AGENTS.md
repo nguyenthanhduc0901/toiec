@@ -32,6 +32,7 @@ The repository is self-contained for application code and question data. It does
 - Use original correct answers and explanations. Never invent missing answers. Missing correct answers must remain null and ungraded.
 - After the first selection, show feedback and explanation immediately and lock that answer until the Part is reset.
 - Preserve local progress, bookmarks, export/import, source links, safe HTML rendering, and responsive layout.
+- Keep the study screen concise: do not restore instructional slogans, per-Part description paragraphs, answer-coverage banners, routine audio captions, shared-group explanatory sentences, or the personal-practice footer. Detailed dataset counts remain available in the data/backup dialog; show audio notices only for actual playback issues.
 - Keep credentials, raw authenticated HTML, full account exports, attempt UUIDs, cookies, nonce values, browser profiles, and private progress backups out of Git.
 - Reading authenticated data does not authorize creating or submitting exams. Obtain explicit user approval before altering the user's Zenlish history or account. There is no reusable blanket approval in this repository.
 

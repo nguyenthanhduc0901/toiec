@@ -10,24 +10,22 @@
 <aside class="sidebar">
   <a class="brand" href="#"><span class="brand-icon">t.</span><span>TOEIC<span class="brand-sub">STUDIO / LOCAL</span></span></a>
   <nav class="year-switch" aria-label="Chọn năm bộ đề"><button type="button" data-year="2024">2024</button><button type="button" data-year="2026">2026 <span>MỚI</span></button></nav>
-  <div class="collection"><span class="eyebrow">BỘ ĐỀ CỦA BẠN</span><h2><span id="collection-year">ETS 2024</span> <span>10 đề</span></h2><p>Luyện từng Part. Hiểu từng câu.</p></div>
+  <div class="collection"><span class="eyebrow">BỘ ĐỀ CỦA BẠN</span><h2><span id="collection-year">ETS 2024</span> <span>10 đề</span></h2></div>
   <div class="side-label">CHỌN PHẦN LUYỆN</div><nav id="parts" aria-label="Chọn Part"></nav>
-  <div class="side-bottom"><span class="local-dot"></span> Tiến độ lưu trên máy này<p>Nội dung và media từ Zenlish.<br>Ảnh và audio cần kết nối Internet.</p><a href="https://zenlishtoeic.vn/test-online-new/" target="_blank" rel="noopener">Mở trang nguồn ↗</a></div>
+  <div class="side-bottom"><a href="https://zenlishtoeic.vn/test-online-new/" target="_blank" rel="noopener">Mở trang nguồn ↗</a></div>
 </aside>
 <main>
-  <header class="topbar"><span>KHÔNG GIAN LUYỆN TẬP <span class="header-divider">/</span> <strong id="header-year">ETS 2024</strong></span><div><button id="data-button" class="quiet">Dữ liệu & sao lưu</button><button id="reset" class="quiet">Làm lại Part</button></div></header>
-  <section class="page-head"><div><div class="eyebrow">LUYỆN THEO PART · 10 ĐỀ LIÊN TIẾP</div><h1 id="part-title"></h1><p id="part-desc"></p></div><div class="stats"><div><strong id="done-count">0</strong><span>Đã làm</span></div><div><strong id="right-count">0</strong><span>Đúng</span></div><div><strong id="accuracy">—</strong><span>Chính xác</span></div></div></section>
-  <div class="coverage" id="coverage"></div>
+  <header class="topbar"><span><strong id="header-year">ETS 2024</strong></span><div><button id="data-button" class="quiet">Dữ liệu & sao lưu</button><button id="reset" class="quiet">Làm lại Part</button></div></header>
+  <section class="page-head"><div><h1 id="part-title"></h1></div><div class="stats"><div><strong id="done-count">0</strong><span>Đã làm</span></div><div><strong id="right-count">0</strong><span>Đúng</span></div><div><strong id="accuracy">—</strong><span>Chính xác</span></div></div></section>
   <section class="toolbar"><label>Đề <select id="test-filter"><option value="all">Tất cả 10 đề</option></select></label><label>Hiển thị <select id="status-filter"><option value="all">Tất cả câu hỏi</option><option value="new">Chưa làm</option><option value="wrong">Đã chọn sai</option><option value="bookmarked">Đã đánh dấu</option><option value="verified">Có đáp án gốc</option></select></label><span class="toolbar-spacer"></span><span id="position"></span></section>
   <div class="progress-track"><div id="progress-bar"></div></div>
-  <nav class="navigation" aria-label="Điều hướng câu hỏi"><span id="nav-hint">Chọn đáp án để xem lời giải ngay</span><button id="prev" class="secondary">← Câu trước</button><button id="next" class="primary">Câu tiếp theo →</button></nav>
+  <nav class="navigation" aria-label="Điều hướng câu hỏi"><button id="prev" class="secondary">← Câu trước</button><button id="next" class="primary">Câu tiếp theo →</button></nav>
   <section id="empty" hidden><h2>Không có câu hỏi phù hợp</h2><p>Đổi bộ lọc để tiếp tục luyện tập.</p></section>
   <section class="workspace" id="workspace">
     <article class="stimulus card"><div class="card-heading"><span id="stimulus-label">NỘI DUNG CÂU HỎI</span><span id="group-range" class="tag"></span></div><div id="media"></div><div id="passage" class="rich"></div><div id="stimulus-note"></div></article>
     <section id="questions" class="questions" aria-label="Các câu hỏi"></section>
   </section>
   <section class="map-section"><div class="map-heading"><h3>Bản đồ câu hỏi <span id="map-total"></span></h3><div class="legend"><span><i class="legend-dot correct"></i>Đúng</span><span><i class="legend-dot wrong"></i>Sai</span><span><i class="legend-dot answered"></i>Chưa chấm</span></div></div><div id="question-map" class="question-map"></div></section>
-  <footer>TOEIC Studio · Bản luyện tập cá nhân · Không tự nộp bài hoặc thay đổi bài làm trên Zenlish.</footer>
 </main>
 <template id="question-template"><article class="question card"><div class="question-meta"><span class="test-badge" data-field="test-badge"></span><button data-field="bookmark" aria-pressed="false" title="Đánh dấu câu hỏi">☆</button></div><h2 data-field="question-number"></h2><div data-field="question-title" class="rich question-title"></div><div data-field="choices" role="group" aria-label="Chọn đáp án"></div><div data-field="feedback" aria-live="polite"></div><div class="question-foot"><span data-field="original-number"></span><a data-field="source-link" target="_blank" rel="noopener">Đề gốc ↗</a></div></article></template>
 <dialog id="data-dialog"><div class="dialog-head"><div><div class="eyebrow" id="library-year">THƯ VIỆN ETS 2024</div><h2>Dữ liệu & tiến độ</h2></div><button id="close-dialog" class="quiet" aria-label="Đóng">✕</button></div><p id="data-summary"></p><div class="table-scroll"><table><thead><tr><th>Đề</th><th>Câu hỏi</th><th>Đáp án</th><th>Lời giải</th></tr></thead><tbody id="data-rows"></tbody></table></div><p class="muted">Tiến độ và đáp án bổ sung được lưu riêng cho năm đang chọn. Câu chưa có đáp án vẫn lưu lựa chọn và không tự chấm.</p><div class="dialog-actions"><button id="export-progress" class="secondary">Xuất tiến độ</button><label class="secondary file-button">Nhập tiến độ<input id="import-progress" type="file" accept="application/json,.json" hidden></label><label class="primary file-button">Bổ sung đáp án<input id="import-answers" type="file" accept="application/json,.json" hidden></label></div><p id="import-message" role="status"></p></dialog>
