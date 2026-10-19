@@ -4,7 +4,7 @@
 
 Vanilla HTML/CSS/JavaScript, no dependencies. `scripts/build.mjs` injects CSS, JavaScript and JSON into `src/template.html` and writes `index.html`. JSON escapes `<` to prevent accidental closing of its `<script type="application/json">` element. All question data is available without browser fetches; opening the file directly is supported.
 
-`scripts/serve.mjs` optionally serves the same repository on loopback. It does not proxy Zenlish or authenticate a user. There is no API server, database, analytics integration, or submission workflow.
+`scripts/serve.mjs` serves the repository on loopback and provides a small local audio-cache API. It does not authenticate to Zenlish or submit exams. There is no account database or analytics integration.
 
 ## Collections: data/ets2024.json and data/ets2026.json
 
@@ -57,6 +57,14 @@ The audio DOM element is replaced only when the shared group changes. Before rep
 User navigation passes an explicit autoplay flag through `render()` to `showMedia()`. A new group's audio calls `play()` synchronously within that interaction; initial page load and non-navigation renders stay silent. Navigation within the current group preserves both playback position and paused state. Playback rejections are handled; browser autoplay restrictions show a manual Play hint, and aborted or obsolete players do not update the current UI.
 
 Part 2 audio uses the native media fragment `#t=1.9` to start playback at 1.9 seconds for both manual Play and autoplay. Other Parts and the original media links remain unchanged; no media files are edited.
+
+## Audio preloading
+
+`src/audio-cache.js` is bundled before `src/app.js`. Its Part-scoped queue deduplicates audio URLs, shuffles the entire current Part (independent of filters), prioritizes the current clip, and issues at most two background requests at once. Failures rejoin the queue up to three attempts; exhausted failures can be retried. Changing year/Part aborts the browser's previous queue. Server downloads already started can finish and remain reusable.
+
+The server accepts only exact URLs present in the bundled datasets. `GET /api/audio-cache?year=...&part=...` returns the complete manifest and disk-ready URLs. `POST /api/audio-cache` accepts a JSON URL and downloads public media without credentials or redirects. A validated complete response is written to a SHA-256-named temporary file under ignored `work/audio-cache/`, then atomically renamed. Pending identical requests share one download. Partial or failed files never count as ready. `GET/HEAD /api/audio-cache/file?url=...` serves cached files with byte-range support for seeking. Private/work folders cannot be accessed through the static server.
+
+Map buttons are updated in place after each completed download, so focus and question state are preserved. All questions sharing an audio URL get the readiness color; grading, active state and bookmarks remain distinct. Playback uses the cached URL when ready, retaining the Part 2 start fragment. A recording already playing or paused partway through is never swapped. Cached metadata is restored from actual files on reload, not saved progress. Cache is local to this machine and is not exported or committed. File-mode/other static hosts retain direct remote playback and show that bulk preloading requires the local server.
 
 ## Local persistence
 

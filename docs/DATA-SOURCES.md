@@ -36,6 +36,6 @@ The legacy `$testParts` JavaScript string in the original page was decoded follo
 
 ## Media
 
-Images and audio remain at their original HTTPS URLs. Examples are under `https://zenlishtoeic.vn/wp-content/uploads/`. The app uses `<img>` and `<audio controls>` with these URLs and offers source links. Files are not embedded in Git, and full offline playback is not claimed.
+Original media URLs remain under `https://zenlishtoeic.vn/wp-content/uploads/`. Images and uncached audio use these URLs; source links remain available. At the user's request, the local server now caches complete public audio for the selected Part in ignored `work/audio-cache/`. Cached audio is served locally, while images and uncached files still require Internet. Media files are not embedded in Git or progress backups.
 
 If links expire or the source blocks hotlinking, first inspect the current authorized media URLs. A future user-requested offline mode could download accessible media into a local assets directory and rewrite links, but it would increase repository size considerably and may require a separate storage strategy. Do not silently replace audio or infer missing content.

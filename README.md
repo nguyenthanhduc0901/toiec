@@ -30,6 +30,8 @@ cd toiec
 - Chọn một đáp án để hiện ngay đáp án đúng và lời giải nguồn. Lựa chọn khóa sau lượt đầu; có nút làm lại Part.
 - Giữ chung nội dung/audio cho các câu thuộc cùng một nhóm.
 - Audio tự phát khi chuyển sang nhóm nghe mới bằng nút trước/sau, bản đồ câu, đổi Part hoặc bộ lọc; đổi câu trong cùng nhóm giữ nguyên vị trí và trạng thái phát. Khi mới mở trang, bấm Play để bắt đầu nghe.
+- Khi chạy bằng `npm start`, app tải nền tất cả audio của Part đang chọn theo thứ tự ngẫu nhiên (ưu tiên đoạn hiện tại, hai lượt tải đồng thời). Câu có audio tải xong được tô xanh nhạt trên bản đồ; màu đúng/sai và đánh dấu vẫn giữ nguyên. Bộ lọc không giới hạn hàng đợi tải của Part.
+- Audio hoàn tất được giữ trong `work/audio-cache/` trên máy này và dùng lại sau khi mở lại web. Đổi Part/năm sẽ chuyển hàng đợi sang lựa chọn mới; các lượt đang tải trên server có thể hoàn tất nốt. File lỗi được thử tối đa ba lần và có nút thử lại. Audio cache không được đưa lên Git hoặc kèm file tiến độ.
 - Lọc theo đề, câu chưa làm, câu sai, câu đánh dấu; có bản đồ câu và điều hướng trước/sau.
 - Lưu tiến độ tự động trong trình duyệt; xuất/nhập JSON để chuyển tiến độ sang máy khác.
 - Giao diện thích ứng màn hình máy tính và điện thoại.
@@ -55,6 +57,8 @@ npm start
 ```
 
 Mở `http://127.0.0.1:4173`. Dừng máy chủ bằng Ctrl+C. Có thể chạy trực tiếp `node scripts/build.mjs`, `node scripts/check.mjs`, `node scripts/serve.mjs` nếu PowerShell chặn `npm.ps1`.
+
+Tải trước audio cần server local này để lưu file đầy đủ từ Zenlish; mở `index.html` trực tiếp vẫn luyện bài và phát từ nguồn như cũ, nhưng không có tải nền. Ảnh và các audio chưa tải vẫn cần Internet. Chạy `npm run test:audio-cache` để kiểm tra hàng đợi, thử lại, lưu file đầy đủ và tua audio từ cache.
 
 Sau mỗi lần sửa nguồn/dữ liệu, chạy build và check rồi commit **cả nguồn lẫn `index.html`**. Script build dùng đường dẫn tương đối theo repository, không phụ thuộc tên thư mục, máy tính hoặc thư mục shell hiện tại.
 
