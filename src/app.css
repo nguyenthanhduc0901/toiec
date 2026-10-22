@@ -7,3 +7,5 @@
 #stimulus-note:empty{display:none}.audio-meta{justify-content:flex-end}.audio-meta .audio-error{margin-right:auto}.audio-meta span:not([hidden]){margin-right:auto}
 
 .audio-cache-info{display:flex;align-items:center;gap:10px;flex-wrap:wrap;color:var(--muted);font-size:11px;margin:0 0 14px}.audio-cache-info .quiet{font-size:11px;padding:3px 8px}.legend{flex-wrap:wrap}.legend-dot.audio-ready{background:#67bed0}.map-button.audio-ready:not(.correct):not(.wrong):not(.answered){background:#e1f3f7}.map-button.audio-ready:before{content:'';position:absolute;bottom:2px;left:calc(50% - 6px);width:12px;height:2px;border-radius:2px;background:#67bed0}
+
+.question-meta{gap:10px;flex-wrap:wrap}.question-actions{display:flex;align-items:center;gap:8px;margin-left:auto}.reset-answer{padding:6px 10px;font-size:11px}.reset-answer:disabled{opacity:.45;cursor:default}

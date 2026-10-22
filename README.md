@@ -27,7 +27,7 @@ cd toiec
 
 - Chọn năm **2023 / 2024 / 2026** ở thanh bên. Trong mỗi Part của năm đã chọn, luyện liên tục Test 1 → Test 10.
 - Tiến độ 2024 cũ tiếp tục dùng được; chuyển năm không xóa hoặc trộn lựa chọn, đánh dấu và vị trí học.
-- Chọn một đáp án để hiện ngay đáp án đúng và lời giải nguồn. Lựa chọn khóa sau lượt đầu; có nút làm lại Part.
+- Chọn một đáp án để hiện ngay đáp án đúng và lời giải nguồn. Lựa chọn khóa sau lượt đầu; mỗi câu có nút **Làm lại câu này** để xóa riêng lựa chọn và trả lời lại. Vẫn có nút làm lại toàn Part.
 - Giữ chung nội dung/audio cho các câu thuộc cùng một nhóm.
 - Audio tự phát khi chuyển sang nhóm nghe mới bằng nút trước/sau, bản đồ câu, đổi Part hoặc bộ lọc; đổi câu trong cùng nhóm giữ nguyên vị trí và trạng thái phát. Khi mới mở trang, bấm Play để bắt đầu nghe.
 - Khi chạy bằng `npm start`, app tải nền tất cả audio của Part đang chọn theo thứ tự ngẫu nhiên (ưu tiên đoạn hiện tại, hai lượt tải đồng thời). Câu có audio tải xong được tô xanh nhạt trên bản đồ; màu đúng/sai và đánh dấu vẫn giữ nguyên. Bộ lọc không giới hạn hàng đợi tải của Part.

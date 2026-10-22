@@ -30,7 +30,7 @@ The repository is self-contained for application code and question data. It does
 - Parts 3, 4, 6, and 7 have shared stimulus groups. Moving within the same group must not reset audio.
 - Choices are indexed from zero. Part 2 has A/B/C; other Parts have A/B/C/D.
 - Use original correct answers and explanations. Never invent missing answers. Missing correct answers must remain null and ungraded.
-- After the first selection, show feedback and explanation immediately and lock that answer until the Part is reset.
+- After the first selection, show feedback and explanation immediately and lock that answer until the question or Part is reset.
 - Preserve local progress, bookmarks, export/import, source links, safe HTML rendering, and responsive layout.
 - Keep the study screen concise: do not restore instructional slogans, per-Part description paragraphs, answer-coverage banners, routine audio captions, shared-group explanatory sentences, or the personal-practice footer. Detailed dataset counts remain available in the data/backup dialog; show audio notices only for actual playback issues.
 - Keep credentials, raw authenticated HTML, full account exports, attempt UUIDs, cookies, nonce values, browser profiles, and private progress backups out of Git.

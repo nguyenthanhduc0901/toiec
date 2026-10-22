@@ -50,7 +50,7 @@ Build `partLists` by filtering questions for each Part; because the flat list is
 
 `safe()` decodes source HTML when needed, creates an inert template, removes executable/interactive elements, allowlists tags/attributes/styles, and restricts source URLs to HTTP(S). Preserve this boundary when adding source content.
 
-`saved.answers` stores the first selected zero-based choice. A question's grading is correct/wrong only if an original correct answer exists. Missing answers are marked selected but ungraded. The app displays original explanations after selection. The first answer remains locked until the user resets that Part.
+`saved.answers` stores the first selected zero-based choice. A question's grading is correct/wrong only if an original correct answer exists. Missing answers are marked selected but ungraded. The app displays original explanations after selection. The first answer remains locked until the user resets that question or its Part. Each card has a reset button enabled after answering. It deletes only that question from `saved.answers`, hides feedback, unlocks choices and updates persisted progress, statistics and the filtered map in place. Shared audio, sibling answers, bookmarks and answer overrides remain intact; the current card stays available for retry even under the wrong-answer filter.
 
 The audio DOM element is replaced only when the shared group changes. Before replacing it, playback stops. The media URLs are public source links; browser-native audio controls perform playback without requiring CORS-enabled JavaScript downloads.
 
