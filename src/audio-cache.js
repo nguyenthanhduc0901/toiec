@@ -4,7 +4,7 @@ class PartAudioCache {
   this.onChange=onChange;this.fetcher=fetcher;this.available=available;this.random=random;this.ready=new Set();this.state=null;
  }
  shuffled(urls){const result=[...urls];for(let i=result.length-1;i>0;i--){const j=Math.floor(this.random()*(i+1));[result[i],result[j]]=[result[j],result[i]];}return result;}
- source(url,part){return (this.ready.has(url)&&this.available()?`/api/audio-cache/file?url=${encodeURIComponent(url)}`:url)+(part===2?'#t=1.9':'');}
+ source(url,part){return (this.ready.has(url)&&this.available()?`/api/audio-cache/file?url=${encodeURIComponent(url)}`:url)+(part===1?'#t=5':part===2?'#t=1.9':'');}
  select(year,part,urls,current){
   const key=`${year}:${part}`;
   if(this.state?.key===key){this.prioritize(current);this.onChange();return;}

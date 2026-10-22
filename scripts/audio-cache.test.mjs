@@ -25,7 +25,7 @@ test('downloads every unique URL, shuffles the queue, prioritizes current and ca
  assert.equal(requested[0],'a');assert.equal(cache.ready.size,0,'Do not mark in-flight files ready');
  while(cache.ready.size<urls.length){finish.splice(0).forEach(fn=>fn());await tick();}
  assert.equal(maxActive,2);assert.deepEqual([...requested].sort(),urls);assert.notDeepEqual(requested,urls);
- assert.ok(cache.source('b',2).endsWith('#t=1.9'));assert.ok(cache.source('b',3).startsWith('/api/audio-cache/file?'));
+ assert.ok(cache.source('b',1).endsWith('#t=5'));assert.ok(cache.source('b',2).endsWith('#t=1.9'));assert.ok(cache.source('b',3).startsWith('/api/audio-cache/file?'));
 });
 
 test('keeps going after errors; only completed files become ready and retry works',async()=>{
@@ -55,7 +55,7 @@ test('restores disk manifest, shares grouped URLs and handles file mode without 
  let posts=0;const cache=new Client({available:()=>true,fetcher:async(url,options)=>{if(options?.method)posts++;return response({ready:['shared','foreign']});}});
  cache.select('2024',3,['shared','shared']);await until(()=>!cache.state.loading);
  assert.equal(cache.state.urls.length,1);assert.equal(posts,0);assert.ok(cache.ready.has('shared'));assert.ok(!cache.ready.has('foreign'));
- const standalone=new Client({available:()=>false});standalone.select('2024',1,['x']);assert.ok(standalone.state.unsupported);assert.equal(standalone.source('x',1),'x');
+ const standalone=new Client({available:()=>false});standalone.select('2024',1,['x']);assert.ok(standalone.state.unsupported);assert.equal(standalone.source('x',1),'x#t=5');
 });
 
 test('server commits full files atomically, restores them and refuses partial/unknown downloads',async()=>{

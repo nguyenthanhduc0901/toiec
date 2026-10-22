@@ -56,7 +56,7 @@ The audio DOM element is replaced only when the shared group changes. Before rep
 
 User navigation passes an explicit autoplay flag through `render()` to `showMedia()`. A new group's audio calls `play()` synchronously within that interaction; initial page load and non-navigation renders stay silent. Navigation within the current group preserves both playback position and paused state. Playback rejections are handled; browser autoplay restrictions show a manual Play hint, and aborted or obsolete players do not update the current UI.
 
-Part 2 audio uses the native media fragment `#t=1.9` to start playback at 1.9 seconds for both manual Play and autoplay. Other Parts and the original media links remain unchanged; no media files are edited.
+Part 1 audio uses the native media fragment `#t=5` to start playback at 5 seconds; Part 2 uses `#t=1.9` to start at 1.9 seconds. These offsets apply across all years, for both manual Play and autoplay, with cached and remote audio. Other Parts and the original media links remain unchanged; no media files are edited.
 
 ## Audio preloading
 
