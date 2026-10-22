@@ -6,9 +6,9 @@ Vanilla HTML/CSS/JavaScript, no dependencies. `scripts/build.mjs` injects CSS, J
 
 `scripts/serve.mjs` serves the repository on loopback and provides a small local audio-cache API. It does not authenticate to Zenlish or submit exams. There is no account database or analytics integration.
 
-## Collections: data/ets2024.json and data/ets2026.json
+## Collections: data/ets2023.json, data/ets2024.json and data/ets2026.json
 
-Each year uses the dataset format below. scripts/library.mjs combines them into `{version:2,datasets:{"2024":...,"2026":...}}`, embedded in the standalone HTML. The year switch swaps dataset indexes and restores that year's saved state. The 2024 dataset/IDs are unchanged; 2026 IDs add a `y2026-` prefix. Content, navigation and source labels always follow the selected year.
+Each year uses the dataset format below. scripts/library.mjs combines them into `{version:2,datasets:{"2023":...,"2024":...,"2026":...}}`, embedded in the standalone HTML. The year switch swaps dataset indexes and restores that year's saved state. The 2024 dataset/IDs are unchanged; 2023/2026 IDs add a `y2023-`/`y2026-` prefix. Content, navigation and source labels always follow the selected year.
 
 Top-level fields:
 
@@ -68,7 +68,7 @@ Map buttons are updated in place after each completed download, so focus and que
 
 ## Local persistence
 
-Keys: `toeic-studio-ets2024-v1` and `toeic-studio-ets2026-v1`, with independent state. The original 2024 key remains unchanged so existing progress loads without migration. `toeic-studio-active-year` remembers the selected collection.
+Keys: `toeic-studio-ets2023-v1`, `toeic-studio-ets2024-v1` and `toeic-studio-ets2026-v1`, with independent state. The original 2024 key remains unchanged so existing progress loads without migration. `toeic-studio-active-year` remembers the selected collection.
 
 State: `answers`, `bookmarks`, `overrides`, `part`, `positions`.
 
@@ -85,4 +85,4 @@ Supplemental answer import format:
 }
 ```
 
-The format suffix must match the selected year (2024 or 2026). Validate IDs, index bounds and field types; do not execute imported HTML.
+The format suffix must match the selected year (2023, 2024 or 2026). Validate IDs, index bounds and field types; do not execute imported HTML.

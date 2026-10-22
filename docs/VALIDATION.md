@@ -1,5 +1,14 @@
 # Verification record
 
+## ETS 2023 — 2026-10-22
+
+- With explicit user approval, ten blank 2023 full-test attempts were submitted through Zenlish's normal start/submit workflow using the authorized Edge CDP session. Only those ten new attempts were used.
+- Collected 2,000 canonical questions and joined all 2,000 correct answers and source explanations by source question ID/subquestion index, verifying original question numbering for each join.
+- Added independent `toeic-studio-ets2023-v1` progress and `y2023-` question IDs. Existing 2024/2026 data files and storage keys were preserved.
+- Build/check passed for all three years (6,000 questions/answers/explanations). Six audio-cache regression tests passed.
+- CDP browser checks passed: 2023 selection and original-answer grading; grouped question counts in Parts 3/4/6/7; separate per-year storage keys; no overflow at 390px. QA progress was restored after checking.
+- Raw pages, review attempt identifiers and authenticated data remain outside tracked files; only normalized content and regular source quiz/media URLs are included.
+
 The initial application was verified in Microsoft Edge through its local DevTools Protocol connection. That connection is not required to run a clone and its credentials/profile are not included.
 
 Verified behavior:

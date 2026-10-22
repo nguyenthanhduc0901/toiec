@@ -1,6 +1,6 @@
-# TOEIC Studio · ETS 2024 & 2026
+# TOEIC Studio · ETS 2023, 2024 & 2026
 
-Web luyện TOEIC cá nhân, gồm **10 đề năm 2024 và 10 đề năm 2026**. Dùng nút **2024 / 2026** để chọn năm; mỗi năm gộp câu theo từng Part và lưu tiến độ riêng. Có đủ **4.000 câu hỏi, 4.000 đáp án gốc và 4.000 lời giải**; chọn đáp án sẽ hiện ngay kết quả và lời giải.
+Web luyện TOEIC cá nhân, gồm **10 đề mỗi năm 2023, 2024 và 2026**. Dùng nút **2023 / 2024 / 2026** để chọn năm; mỗi năm gộp câu theo từng Part và lưu tiến độ riêng. Có đủ **6.000 câu hỏi, 6.000 đáp án gốc và 6.000 lời giải**; chọn đáp án sẽ hiện ngay kết quả và lời giải.
 
 ## Dùng trên máy khác
 
@@ -25,7 +25,7 @@ cd toiec
 | 6 | Hoàn thành đoạn văn | 160 |
 | 7 | Đọc hiểu | 540 |
 
-- Chọn năm **2024 / 2026** ở thanh bên. Trong mỗi Part của năm đã chọn, luyện liên tục Test 1 → Test 10.
+- Chọn năm **2023 / 2024 / 2026** ở thanh bên. Trong mỗi Part của năm đã chọn, luyện liên tục Test 1 → Test 10.
 - Tiến độ 2024 cũ tiếp tục dùng được; chuyển năm không xóa hoặc trộn lựa chọn, đánh dấu và vị trí học.
 - Chọn một đáp án để hiện ngay đáp án đúng và lời giải nguồn. Lựa chọn khóa sau lượt đầu; có nút làm lại Part.
 - Giữ chung nội dung/audio cho các câu thuộc cùng một nhóm.
@@ -69,6 +69,7 @@ index.html                 Bản chạy ngay, được tạo bởi build
 src/template.html          Cấu trúc HTML và placeholder
 src/app.css                Giao diện responsive
 src/app.js                 Chọn câu, chấm, lời giải, audio, lưu tiến độ
+data/ets2023.json           Bộ đề 2023 đã chuẩn hóa
 data/ets2024.json           Bộ đề đã chuẩn hóa, đáp án và lời giải đầy đủ
 data/ets2026.json           Bộ đề 2026 đã chuẩn hóa
 scripts/library.mjs        Gộp dữ liệu hai năm vào bản HTML
@@ -83,6 +84,6 @@ docs/VALIDATION.md          Những gì đã kiểm thử và giới hạn
 
 ## Nguồn
 
-Nội dung, đáp án và lời giải được đọc từ [Zenlish](https://zenlishtoeic.vn/test-online-new/), phạm vi TEST 1–10 các năm 2024 và 2026. Bản này tổ chức lại để luyện tập cá nhân; không phải sản phẩm chính thức của Zenlish hoặc ETS. Không có đáp án/lời giải do AI suy đoán.
+Nội dung, đáp án và lời giải được đọc từ [Zenlish](https://zenlishtoeic.vn/test-online-new/), phạm vi TEST 1–10 các năm 2023, 2024 và 2026. Bản này tổ chức lại để luyện tập cá nhân; không phải sản phẩm chính thức của Zenlish hoặc ETS. Không có đáp án/lời giải do AI suy đoán.
 
 Repository không chứa cookie, token, thông tin tài khoản, lịch sử bài làm hoặc hồ sơ Edge. Nguồn có thể đổi hoặc chặn URL media trong tương lai; xem hướng dẫn cập nhật trong `docs/DATA-SOURCES.md`.

@@ -35,6 +35,7 @@ for(const [year,data]of Object.entries(library.datasets)){
   if(!allowIncomplete||year==='2024')assert.ok(q.correct!==null&&q.explanation.trim(),'Original answer/explanation missing: '+q.id);
  }
  if(year==='2024')assert.ok(data.questions.every(q=>q.id.startsWith('t')),'Keep stable 2024 IDs');
+ else assert.ok(data.questions.every(q=>q.id.startsWith('y'+year+'-')),'Use year-prefixed IDs');
  console.log(year+': '+data.questions.length+' questions, '+data.questions.filter(q=>q.correct!==null).length+' original answers, '+data.questions.filter(q=>q.explanation).length+' explanations');
 }
 new vm.Script(read('src/app.js'),{filename:'src/app.js'});
@@ -43,5 +44,5 @@ const html=read('index.html');for(const marker of ['CSS','JS','DATA'])assert.ok(
 const embedded=html.match(/<script id="dataset" type="application\/json">([\s\S]*?)<\/script>/);assert.ok(embedded);assert.deepEqual(JSON.parse(embedded[1]),library);
 const expected=read('src/template.html').replace('/*__CSS__*/',()=>read('src/app.css')+'\n.choice:disabled{opacity:1;cursor:default}').replace('/*__DATA__*/',()=>serializeLibrary(library)).replace('/*__JS__*/',()=>read('src/audio-cache.js')+'\n'+read('src/app.js'));
 assert.equal(html,expected,'index.html is stale; run npm run build');
-for(const year of ['2024','2026'])assert.ok(html.includes('data-year="'+year+'"'));
-console.log(`PASS: 2 years, 4,000 questions, ${answerCount} answers, ${explanationCount} explanations, canonical order, groups, media URLs and reproducible build.`);
+for(const year of Object.keys(library.datasets))assert.ok(html.includes('data-year="'+year+'"'));
+console.log(`PASS: ${Object.keys(library.datasets).length} years, ${globalIds.size.toLocaleString('en-US')} questions, ${answerCount} answers, ${explanationCount} explanations, canonical order, groups, media URLs and reproducible build.`);

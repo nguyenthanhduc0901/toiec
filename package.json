@@ -1,10 +1,12 @@
 {
   "name": "toiec-studio",
-  "version": "1.1.0",
+  "version": "1.2.0",
   "private": true,
-  "description": "Local TOEIC practice: ETS 2024 and 2026, 20 tests and 4,000 questions with separate progress per year.",
+  "description": "Local TOEIC practice: ETS 2023, 2024 and 2026, 30 tests and 6,000 questions with separate progress per year.",
   "type": "module",
-  "engines": { "node": ">=18" },
+  "engines": {
+    "node": ">=18"
+  },
   "scripts": {
     "build": "node scripts/build.mjs",
     "check": "node scripts/check.mjs",

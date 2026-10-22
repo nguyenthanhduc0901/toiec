@@ -2,7 +2,7 @@
 
 ## Goal and current state
 
-This is a local-first Vietnamese TOEIC practice app for ETS 2024 and ETS 2026, Tests 1–10 per year. The user wants a year selector, continuous practice **by Part across all ten tests of the selected year**, and immediate original correct-answer feedback plus explanation after choosing an answer. Preserve that behavior.
+This is a local-first Vietnamese TOEIC practice app for ETS 2023, ETS 2024 and ETS 2026, Tests 1–10 per year. The user wants a year selector, continuous practice **by Part across all ten tests of the selected year**, and immediate original correct-answer feedback plus explanation after choosing an answer. Preserve that behavior.
 
 The repository is self-contained for application code and question data. It does not depend on the original author's filesystem, Codex, browser profile, credentials, or previous conversation. Read README.md, docs/ARCHITECTURE.md, and docs/DATA-SOURCES.md before material changes.
 
@@ -16,7 +16,7 @@ The repository is self-contained for application code and question data. It does
 
 ## Source of truth
 
-- Edit src/template.html, src/app.css, src/app.js, data/ets2024.json, and data/ets2026.json.
+- Edit src/template.html, src/app.css, src/app.js, data/ets2023.json, data/ets2024.json, and data/ets2026.json.
 - scripts/library.mjs builds a version-2 bundle with datasets keyed by year; the app can also read the legacy single-dataset format.
 - Do not hand-edit the generated index.html. Rebuild and commit it with source changes.
 - Keep scripts portable and use paths relative to their own module directory.
@@ -24,8 +24,8 @@ The repository is self-contained for application code and question data. It does
 
 ## Data and behavior invariants
 
-- 4,000 questions across two years. Each year has 2,000 questions, 200 per test, Part totals [60,250,390,300,300,160,540].
-- Keep the legacy toeic-studio-ets2024-v1 storage key and 2024 IDs unchanged. 2026 uses toeic-studio-ets2026-v1 and y2026-prefixed IDs. Never merge answers, overrides, bookmarks or saved positions across years. The separate toeic-studio-active-year key stores only the selected year.
+- 6,000 questions across three years. Each year has 2,000 questions, 200 per test, Part totals [60,250,390,300,300,160,540].
+- Keep the legacy toeic-studio-ets2024-v1 storage key and 2024 IDs unchanged. 2023 and 2026 use toeic-studio-ets{year}-v1 and y{year}-prefixed IDs. Never merge answers, overrides, bookmarks or saved positions across years. The separate toeic-studio-active-year key stores only the selected year.
 - Order within each Part is Test 1 to Test 10, with the original question order preserved. Retain stable question IDs so saved progress remains valid.
 - Parts 3, 4, 6, and 7 have shared stimulus groups. Moving within the same group must not reset audio.
 - Choices are indexed from zero. Part 2 has A/B/C; other Parts have A/B/C/D.

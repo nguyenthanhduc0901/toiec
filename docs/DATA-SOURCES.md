@@ -4,9 +4,9 @@
 
 Catalog: https://zenlishtoeic.vn/test-online-new/
 
-Quiz URLs: `https://zenlishtoeic.vn/stm-quizzes/test-{1..10}-{2024|2026}/`.
+Quiz URLs: `https://zenlishtoeic.vn/stm-quizzes/test-{1..10}-{2023|2024|2026}/`.
 
-Each year contains 2,000 questions. A clone can run the bundled datasets immediately. No authenticated scraping is required for setup, building, or normal use. `npm run check` requires complete original answer/explanation coverage for both years; `--allow-incomplete` is only for a temporary, clearly labeled collection in development.
+Each year contains 2,000 questions. A clone can run the bundled datasets immediately. No authenticated scraping is required for setup, building, or normal use. `npm run check` requires complete original answer/explanation coverage for all bundled years; `--allow-incomplete` is only for a temporary, clearly labeled collection in development.
 
 Source text belongs to its original authors; no ownership of Zenlish/ETS content is claimed by this app. The user requested this copy for personal practice. The repository is marked private in package.json to prevent accidental npm publication; that field does not control GitHub repository visibility.
 
@@ -39,3 +39,7 @@ The legacy `$testParts` JavaScript string in the original page was decoded follo
 Original media URLs remain under `https://zenlishtoeic.vn/wp-content/uploads/`. Images and uncached audio use these URLs; source links remain available. At the user's request, the local server now caches complete public audio for the selected Part in ignored `work/audio-cache/`. Cached audio is served locally, while images and uncached files still require Internet. Media files are not embedded in Git or progress backups.
 
 If links expire or the source blocks hotlinking, first inspect the current authorized media URLs. A future user-requested offline mode could download accessible media into a local assets directory and rewrite links, but it would increase repository size considerably and may require a separate storage strategy. Do not silently replace audio or infer missing content.
+
+## ETS 2023 acquisition — 2026-10-22
+
+The user explicitly approved creating and submitting ten blank full-test attempts for Tests 1–10 of 2023 in this session. The official workflow was driven through the user-authorized Edge DevTools connection. Public question payloads supplied content in canonical term_questions order. The official authenticated history/review pages supplied correct-choice markers and original explanation HTML. Records were joined by source question ID and subquestion index, with original question numbering verified. Only normalized question data is retained in Git; no account data, attempt identifiers or authentication material is included. This approval applies to these ten attempts only.
