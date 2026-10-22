@@ -15,3 +15,5 @@ playwright/.auth/
 *-progress.json
 !toeic-2024-tien-do.json
 !toeic-2026-tien-do.json
+
+!toeic-2023-tien-do.json
