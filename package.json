@@ -9,6 +9,7 @@
   },
   "scripts": {
     "build": "node scripts/build.mjs",
+    "build:hosted": "node scripts/build-hosted.mjs",
     "check": "node scripts/check.mjs",
     "start": "node scripts/serve.mjs",
     "test:audio-cache": "node --test scripts/audio-cache.test.mjs"
