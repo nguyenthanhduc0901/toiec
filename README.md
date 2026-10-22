@@ -34,6 +34,7 @@ cd toiec
 - Audio hoàn tất được giữ trong `work/audio-cache/` trên máy này và dùng lại sau khi mở lại web. Đổi Part/năm sẽ chuyển hàng đợi sang lựa chọn mới; các lượt đang tải trên server có thể hoàn tất nốt. File lỗi được thử tối đa ba lần và có nút thử lại. Audio cache không được đưa lên Git hoặc kèm file tiến độ.
 - Lọc theo đề, câu chưa làm, câu sai, câu đánh dấu; có bản đồ câu và điều hướng trước/sau.
 - Lưu tiến độ tự động trong trình duyệt; xuất/nhập JSON để chuyển tiến độ sang máy khác.
+- Nút **Hỗ trợ mù màu** bật/tắt giao diện xanh dương / nâu cam có độ tương phản cao hơn. Bản đồ và đáp án dùng thêm ký hiệu ✓ / × / ? và viền liền / nét đứt; ↓ là audio đã tải. Tùy chọn giao diện được lưu trên trình duyệt, dùng chung cho các năm.
 - Giao diện thích ứng màn hình máy tính và điện thoại.
 
 ## Chuyển tiến độ sang máy khác

@@ -86,3 +86,7 @@ Supplemental answer import format:
 ```
 
 The format suffix must match the selected year (2023, 2024 or 2026). Validate IDs, index bounds and field types; do not execute imported HTML.
+
+## Color vision support
+
+The header toggle sets `colorblind-theme` on the document root and persists its boolean separately as `toeic-studio-colorblind-theme`. It changes presentation without rendering or touching yearly progress or audio. Blue/solid/check marks identify correct answers; brown-orange/dashed/cross marks identify wrong ones. Neutral/dotted/question marks identify ungraded answers. Map buttons retain question numbers and add status symbols, a download arrow for cached audio, and a star for bookmarks. Accessible map names include grading and bookmark status in both themes. Theme changes keep media, filters, question position and focus intact.
