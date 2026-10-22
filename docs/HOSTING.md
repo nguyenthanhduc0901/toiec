@@ -1,5 +1,7 @@
 # Cloudflare Pages
 
+Live site: https://toeic-ducthanh.pages.dev/ (project `toeic-ducthanh`, Direct Upload, deployed 2026-10-22). Updates require rebuilding and uploading `dist/`; Git pushes alone do not redeploy this project.
+
 The static application can be published on the Cloudflare Pages Free plan. Build with Node.js >=18:
 
 ```sh
