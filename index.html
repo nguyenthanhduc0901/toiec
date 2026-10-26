@@ -363,6 +363,26 @@ audio {
   font-size: 12px;
   text-align: center;
 }
+.listening-draft {
+  display: block;
+  width: 100%;
+  min-height: 220px;
+  padding: 14px 16px;
+  resize: vertical;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  background: white;
+  color: var(--ink);
+  font: 16px/1.7 'Segoe UI', Arial, sans-serif;
+  text-align: left;
+}
+.listening-draft::placeholder {
+  color: var(--muted);
+}
+.listening-draft:focus-visible {
+  outline: 3px solid var(--blue);
+  outline-offset: 2px;
+}
 .sound-art {
   display: flex;
   align-items: center;
@@ -2805,7 +2825,16 @@ function showMedia(q, autoplay = false) {
     notice.textContent = "The source has not provided audio for this question.";
     $("stimulus-note").append(notice);
   }
-  if (
+  if ([3, 4].includes(q.part)) {
+    const draft = document.createElement("textarea");
+    draft.className = "listening-draft";
+    draft.rows = 9;
+    draft.placeholder = "Type what you hear…";
+    draft.setAttribute("aria-label", "Listening draft");
+    draft.setAttribute("autocomplete", "off");
+    draft.spellcheck = false;
+    $("stimulus-note").append(draft);
+  } else if (
     !$("passage").textContent.trim() &&
     !$("passage").querySelector("img,table")
   ) {

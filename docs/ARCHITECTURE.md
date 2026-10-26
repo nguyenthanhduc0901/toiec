@@ -132,4 +132,6 @@ The Audio speed dialog applies a common speed to listening Parts 1–4, with opt
 
 ## Auto-next on correct answers
 
+Parts 3 and 4 display a temporary listening-draft textarea after the shared passage/image, replacing the decorative waveform. Its content lives only in the current group's DOM: answering or moving within the group preserves it; changing groups or reloading discards it. Drafts are not persisted or included in progress/mistake exports. Other Parts retain their existing media layout.
+
 The checkbox preference toeic-studio-auto-next-correct-v1 is shared across collections and independent of progress. It is disabled in grouped Parts 3/4/6/7. Answer handling independently guards Parts 1/2/5, a known correct answer, the newly selected correct choice, and current question identity before calling step(1) synchronously. Normal navigation respects filters/retry scope and stops at the last question. There are no delayed transitions, so manual navigation cannot race a timer and the next audio retains the answer-click user gesture. Incorrect, ungraded and already locked answers do not advance.

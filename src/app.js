@@ -418,7 +418,16 @@ function showMedia(q, autoplay = false) {
     notice.textContent = "The source has not provided audio for this question.";
     $("stimulus-note").append(notice);
   }
-  if (
+  if ([3, 4].includes(q.part)) {
+    const draft = document.createElement("textarea");
+    draft.className = "listening-draft";
+    draft.rows = 9;
+    draft.placeholder = "Type what you hear…";
+    draft.setAttribute("aria-label", "Listening draft");
+    draft.setAttribute("autocomplete", "off");
+    draft.spellcheck = false;
+    $("stimulus-note").append(draft);
+  } else if (
     !$("passage").textContent.trim() &&
     !$("passage").querySelector("img,table")
   ) {

@@ -353,6 +353,26 @@ audio {
   font-size: 12px;
   text-align: center;
 }
+.listening-draft {
+  display: block;
+  width: 100%;
+  min-height: 220px;
+  padding: 14px 16px;
+  resize: vertical;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  background: white;
+  color: var(--ink);
+  font: 16px/1.7 'Segoe UI', Arial, sans-serif;
+  text-align: left;
+}
+.listening-draft::placeholder {
+  color: var(--muted);
+}
+.listening-draft:focus-visible {
+  outline: 3px solid var(--blue);
+  outline-offset: 2px;
+}
 .sound-art {
   display: flex;
   align-items: center;
