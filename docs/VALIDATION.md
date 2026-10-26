@@ -78,3 +78,12 @@ For UI changes, rerun relevant browser checks. For changes only to documentation
 - Edge CDP QA confirms collection labels, first-answer lock, correct/wrong feedback, explanation display, per-question retry, bookmarks, filters, Test 10 final-question guard, grouped Parts 3/4/6/7, unchanged shared audio DOM, Part 2 1.2x and 1.9s start, export format and import validation including foreign-key rejection.
 - Switching all ETS years keeps legacy storage keys; switching back restores HACKER answers independently. Browser storage for all tested collections and active selection is restored after QA.
 - Desktop and 390px mobile screenshots inspected; no page-width overflow. Original Test 1 image loads and audio reaches readyState 4 with no media error. Local audio-cache manifest accepts hacker2 collection.
+
+
+## HACKER TOEIC 3 — 2026-10-26
+
+Ten separately approved blank tests were submitted exactly once through Edge CDP. Review joins verify questionId/subIndex and original numbering. Build/check pass for five collections: 10,000 questions, 9,999 original keys and 10,000 explanations. HACKER 3 itself has all 2,000 keys/explanations; existing ETS/HACKER 2 JSON files are unchanged. Six audio-cache tests pass.
+
+Edge console QA passes collection selection/label, correct/wrong feedback, answer lock, reset, shared Parts 3/4/6/7 and stable audio, Part 2 1.2x and 1.9s offset, bookmarks/filters, Test 10 last-question guard, independent persistence and export/import format validation. HACKER 2 retains its own key and data. Source exceptions are tested explicitly: missing audio shows a notice; Test 6 Q37 has exactly three choices and original answer B grades correctly. All test storage and selected collection are restored after QA.
+
+Desktop and 390px screenshots inspected; no page overflow. Test 1 source image loads and audio reaches readyState 4 without error. Local audio-cache manifest accepts hacker3. The online Cloudflare deployment was not changed, following the user instruction.

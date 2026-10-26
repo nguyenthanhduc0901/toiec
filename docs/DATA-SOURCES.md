@@ -55,3 +55,14 @@ The source has five malformed choice labels, normalized by their existing index 
 Test 7 Q93 (source group 78414, subindex 1) has all four choices and a full explanation, but the official review marks none as correct. Its answer remains null. Although its explanation bolds an option, other source explanations contain formatting that disagrees with machine answer keys, so emphasis is not accepted as an answer key. This exact source omission is declared and checked explicitly; other missing keys fail validation. Totals: 2,000 questions, 1,999 original answers, 2,000 explanations.
 
 Only normalized study content and public media links enter Git. Browser credentials, account details, attempt identifiers, raw authenticated pages and temporary review payloads stay out of the repository.
+
+
+## HACKER TOEIC 3 acquisition — 2026-10-26
+
+The user separately confirmed creating and submitting ten blank full-test attempts for HACKER TOEIC 3 Tests 1–10. Each was submitted exactly once via the same authorized Edge CDP/JavaScript console workflow, without Computer Use. Review data was joined by source questionId/subIndex and checked against original question numbering. The collection contains 2,000 questions, 2,000 original answer keys and 2,000 original explanations, with no missing answer key.
+
+Test 2 uses the catalog URL /stm-quizzes/hacker-3-test/; other tests use /stm-quizzes/hacker-3-test-N/. Two labels in Test 2 (Q73 A and Q74 C) had trailing whitespace, normalized to their original option letter without reordering content. Test 6 Q37, source group 73749 subindex 2, has only three choices in both the public question payload and the completed official review. Its original correct answer is B (index 1). Keep exactly those three choices; do not synthesize a fourth option. This source exception is checked by exact ID.
+
+Only normalized content and public media URLs are committed. Account data, raw authenticated pages, attempt identifiers and browser profiles remain excluded. No hosting update was requested for this batch; the existing online deployment stays unchanged.
+
+HACKER 3 Test 7 full-test questions 15, 20 and 22 have empty audio_url fields; their official review sections also contain no audio/source/link. Keep their group audio empty and show an explicit missing-source-audio notice. Exact group IDs are declared in missingAudio and validation allows only these three known omissions. No guessed filenames or substituted audio are used.

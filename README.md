@@ -1,6 +1,6 @@
-# TOEIC Studio · ETS 2023, 2024, 2026 & HACKER TOEIC 2
+# TOEIC Studio · ETS 2023, 2024, 2026 & HACKER TOEIC 2–3
 
-Web luyện TOEIC cá nhân, gồm **ETS 2023, ETS 2024, ETS 2026 và HACKER TOEIC 2**, mỗi bộ 10 đề. Chọn bộ đề ở thanh bên; mỗi bộ gộp câu theo từng Part và lưu tiến độ riêng. Có **8.000 câu hỏi, 7.999 đáp án gốc và 8.000 lời giải**. HACKER TOEIC 2 Test 7 câu 93 có lời giải nhưng nguồn không gắn đáp án đúng nên giữ chưa chấm; không tự suy đoán đáp án.
+Web luyện TOEIC cá nhân, gồm **ETS 2023, ETS 2024, ETS 2026, HACKER TOEIC 2 và HACKER TOEIC 3**, mỗi bộ 10 đề. Chọn bộ đề ở thanh bên; mỗi bộ gộp câu theo từng Part và lưu tiến độ riêng. Có **10.000 câu hỏi, 9.999 đáp án gốc và 10.000 lời giải**. HACKER TOEIC 2 Test 7 câu 93 có lời giải nhưng nguồn không gắn đáp án đúng nên giữ chưa chấm; không tự suy đoán đáp án.
 
 ## Dùng trên máy khác
 
@@ -25,7 +25,7 @@ cd toiec
 | 6 | Hoàn thành đoạn văn | 160 |
 | 7 | Đọc hiểu | 540 |
 
-- Chọn **2023 / 2024 / 2026 / HACKER TOEIC 2** ở thanh bên. Trong mỗi Part của bộ đã chọn, luyện liên tục Test 1 → Test 10.
+- Chọn **2023 / 2024 / 2026 / HACKER TOEIC 2 / HACKER TOEIC 3** ở thanh bên. Trong mỗi Part của bộ đã chọn, luyện liên tục Test 1 → Test 10.
 - Tiến độ 2024 cũ tiếp tục dùng được; chuyển năm không xóa hoặc trộn lựa chọn, đánh dấu và vị trí học.
 - Chọn một đáp án để hiện ngay đáp án đúng và lời giải nguồn. Lựa chọn khóa sau lượt đầu; mỗi câu có nút **Làm lại câu này** để xóa riêng lựa chọn và trả lời lại. Vẫn có nút làm lại toàn Part.
 - Giữ chung nội dung/audio cho các câu thuộc cùng một nhóm.
@@ -70,6 +70,7 @@ index.html                 Bản chạy ngay, được tạo bởi build
 src/template.html          Cấu trúc HTML và placeholder
 src/app.css                Giao diện responsive
 src/app.js                 Chọn câu, chấm, lời giải, audio, lưu tiến độ
+data/hacker3.json           HACKER TOEIC 3, 10 đề đủ đáp án/lời giải
 data/hacker2.json           HACKER TOEIC 2, 10 đề, 1 đáp án nguồn bị thiếu
 data/ets2023.json           Bộ đề 2023 đã chuẩn hóa
 data/ets2024.json           Bộ đề đã chuẩn hóa, đáp án và lời giải đầy đủ
@@ -91,3 +92,7 @@ Nội dung, đáp án và lời giải được đọc từ [Zenlish](https://ze
 Repository không chứa cookie, token, thông tin tài khoản, lịch sử bài làm hoặc hồ sơ Edge. Nguồn có thể đổi hoặc chặn URL media trong tương lai; xem hướng dẫn cập nhật trong `docs/DATA-SOURCES.md`.
 
 Tiến độ HACKER TOEIC 2 dùng khóa riêng `toeic-studio-hacker2-v1`; xuất ra `toeic-hacker2-tien-do.json`. File ETS cũ tiếp tục nhập đúng bộ như trước. Web online: https://toeic-ducthanh.pages.dev/; xem docs/HOSTING.md để cập nhật bản deploy.
+
+HACKER TOEIC 3 có đủ 2.000 đáp án và 2.000 lời giải gốc, lưu tiến độ riêng bằng `toeic-studio-hacker3-v1` và xuất `toeic-hacker3-tien-do.json`. Test 6 câu 37 giữ đúng ba lựa chọn A/B/C vì cả đề và trang review nguồn đều thiếu D; câu vẫn chấm theo đáp án B gốc.
+
+Nguồn HACKER TOEIC 3 Test 7 thiếu audio ở câu gốc 15, 20, 22; app hiển thị thông báo tại các câu đó. Các đáp án và lời giải vẫn đầy đủ.

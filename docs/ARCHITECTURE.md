@@ -98,3 +98,8 @@ The header toggle sets `colorblind-theme` on the document root and persists its 
 The internal selection variable and `data-year` attributes also accept collection IDs. Display labels fall back to ETS + year for legacy data; persistence falls back to the original ETS key. HACKER progress export uses toeic-hacker2-tien-do.json and its own format/key; imports from other collections are rejected. The active-year key can now contain hacker2. Audio-cache manifest lookup already accepts string dataset keys.
 
 All ten tests contain 200 questions, with the same canonical Part totals/grouping as ETS. There are 1,999 machine-marked original answers and 2,000 original explanations. Source review Test 7 Q93 has no correct-choice marker. Its `correct` stays null and ID is declared in missingAnswers; validation accepts exactly this one known omission and requires its explanation. Formatting in explanations is not used to invent or override answer keys.
+
+
+## HACKER TOEIC 3
+
+`data/hacker3.json` follows the HACKER 2 collection contract with dataset key hacker3, label HACKER TOEIC 3, progress key toeic-studio-hacker3-v1 and unique hacker3-prefixed IDs. The collection selector, backup format and audio-cache lookup reuse the existing generic label/progress metadata without changing any existing collection IDs, keys or question data. It contains all 2,000 original keys and explanations. The exact-ID validation exception for Test 6 Q37 preserves the source quiz/review three-choice structure while grading normally against original choice B.
