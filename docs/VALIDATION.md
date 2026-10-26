@@ -87,3 +87,12 @@ Ten separately approved blank tests were submitted exactly once through Edge CDP
 Edge console QA passes collection selection/label, correct/wrong feedback, answer lock, reset, shared Parts 3/4/6/7 and stable audio, Part 2 1.2x and 1.9s offset, bookmarks/filters, Test 10 last-question guard, independent persistence and export/import format validation. HACKER 2 retains its own key and data. Source exceptions are tested explicitly: missing audio shows a notice; Test 6 Q37 has exactly three choices and original answer B grades correctly. All test storage and selected collection are restored after QA.
 
 Desktop and 390px screenshots inspected; no page overflow. Test 1 source image loads and audio reaches readyState 4 without error. Local audio-cache manifest accepts hacker3. The online Cloudflare deployment was not changed, following the user instruction.
+
+
+## Combined study, persistent mistakes and local cleanup — 2026-10-26
+
+Before the user asked to stop verification: build/check passed all five collections and unchanged source data; all 13 tests passed. Edge CDP integration passed shared single/combined progress, collection/test boundaries, retrying only wrong questions, retaining repeated wrong attempts after correction, historical filtering, grouped audio, rich HTML/JSON report buttons, legacy/combined backup validation, clear-all and 390px layout. QA storage was restored afterwards.
+
+The same eight-pass Part 7 benchmark with 2,700 map buttons averaged 34.2 ms before cleanup and 1.1125 ms afterwards on this machine. Full map replacements dropped from eight to zero when the ID list stayed unchanged. These are local measurements of map refresh, not a claim about all page-load timings. Gzip/cache and index identity/invalidation are covered by the tests. No further tests were run after the user requested stopping verification.
+
+All changes remain local and uncommitted. Existing question datasets and tracked backup files were kept. The user-requested one-time local progress reset was armed in ignored work/study-reset-request.json; hosted deployment was not touched.

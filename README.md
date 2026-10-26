@@ -1,6 +1,8 @@
 # TOEIC Studio · ETS 2023, 2024, 2026 & HACKER TOEIC 2–3
 
-Web luyện TOEIC cá nhân, gồm **ETS 2023, ETS 2024, ETS 2026, HACKER TOEIC 2 và HACKER TOEIC 3**, mỗi bộ 10 đề. Chọn bộ đề ở thanh bên; mỗi bộ gộp câu theo từng Part và lưu tiến độ riêng. Có **10.000 câu hỏi, 9.999 đáp án gốc và 10.000 lời giải**. HACKER TOEIC 2 Test 7 câu 93 có lời giải nhưng nguồn không gắn đáp án đúng nên giữ chưa chấm; không tự suy đoán đáp án.
+Web luyện TOEIC cá nhân, gồm **ETS 2023, ETS 2024, ETS 2026, HACKER TOEIC 2 và HACKER TOEIC 3**, mỗi bộ 10 đề. Chọn bộ đề ở thanh bên; mỗi bộ gộp câu theo từng Part. Chế độ **Tất cả bộ đề** gộp cả 50 đề theo Part và dùng chung tiến độ với từng bộ. Có **10.000 câu hỏi, 9.999 đáp án gốc và 10.000 lời giải**. HACKER TOEIC 2 Test 7 câu 93 có lời giải nhưng nguồn không gắn đáp án đúng nên giữ chưa chấm; không tự suy đoán đáp án.
+
+Giao diện app dùng tiếng Anh; nội dung đề và lời giải giữ nguyên ngôn ngữ nguồn. Các nút chính: **All collections**, **Retry wrong answers**, **Export mistakes**, **Data & backup**.
 
 ## Dùng trên máy khác
 
@@ -27,7 +29,7 @@ cd toiec
 
 - Chọn **2023 / 2024 / 2026 / HACKER TOEIC 2 / HACKER TOEIC 3** ở thanh bên. Trong mỗi Part của bộ đã chọn, luyện liên tục Test 1 → Test 10.
 - Tiến độ 2024 cũ tiếp tục dùng được; chuyển năm không xóa hoặc trộn lựa chọn, đánh dấu và vị trí học.
-- Chọn một đáp án để hiện ngay đáp án đúng và lời giải nguồn. Lựa chọn khóa sau lượt đầu; mỗi câu có nút **Làm lại câu này** để xóa riêng lựa chọn và trả lời lại. Vẫn có nút làm lại toàn Part.
+- Chọn một đáp án để hiện ngay đáp án đúng và lời giải nguồn. Lựa chọn khóa sau lượt đầu; dùng **Làm lại câu sai** trong Part để luyện lại. Lịch sử các lần chọn sai vẫn được giữ sau khi sửa đúng. Khi lọc **Đã từng sai**, nút đổi thành **Làm lại câu từng sai** để luyện lại cả các câu đã sửa đúng. Vẫn có nút làm lại toàn Part.
 - Giữ chung nội dung/audio cho các câu thuộc cùng một nhóm.
 - Audio tự phát khi chuyển sang nhóm nghe mới bằng nút trước/sau, bản đồ câu, đổi Part hoặc bộ lọc; đổi câu trong cùng nhóm giữ nguyên vị trí và trạng thái phát. Khi mới mở trang, bấm Play để bắt đầu nghe.
 - Khi chạy bằng `npm start`, app tải nền tất cả audio của Part đang chọn theo thứ tự ngẫu nhiên (ưu tiên đoạn hiện tại, hai lượt tải đồng thời). Câu có audio tải xong được tô xanh nhạt trên bản đồ; màu đúng/sai và đánh dấu vẫn giữ nguyên. Bộ lọc không giới hạn hàng đợi tải của Part.
@@ -75,7 +77,12 @@ data/hacker2.json           HACKER TOEIC 2, 10 đề, 1 đáp án nguồn bị t
 data/ets2023.json           Bộ đề 2023 đã chuẩn hóa
 data/ets2024.json           Bộ đề đã chuẩn hóa, đáp án và lời giải đầy đủ
 data/ets2026.json           Bộ đề 2026 đã chuẩn hóa
-scripts/library.mjs        Gộp các bộ đề vào bản HTML
+scripts/library.mjs        Đọc các bộ đề nguồn
+scripts/bundle.mjs         Dùng chung quy trình đóng gói và kiểm tra
+src/study-library.js       Chỉ mục bộ đề và chế độ gộp
+src/study-progress.js      Tiến độ dùng chung và lịch sử sai
+src/safe-html.js           Xử lý nội dung nguồn an toàn
+src/mistake-export.js      Xuất báo cáo câu từng sai
 scripts/build.mjs          Đóng gói thành HTML độc lập
 scripts/check.mjs          Kiểm tra bộ đề, thứ tự, cấu trúc và bản build
 scripts/serve.mjs          Máy chủ local tùy chọn, chỉ lắng nghe loopback
@@ -96,3 +103,20 @@ Tiến độ HACKER TOEIC 2 dùng khóa riêng `toeic-studio-hacker2-v1`; xuất
 HACKER TOEIC 3 có đủ 2.000 đáp án và 2.000 lời giải gốc, lưu tiến độ riêng bằng `toeic-studio-hacker3-v1` và xuất `toeic-hacker3-tien-do.json`. Test 6 câu 37 giữ đúng ba lựa chọn A/B/C vì cả đề và trang review nguồn đều thiếu D; câu vẫn chấm theo đáp án B gốc.
 
 Nguồn HACKER TOEIC 3 Test 7 thiếu audio ở câu gốc 15, 20, 22; app hiển thị thông báo tại các câu đó. Các đáp án và lời giải vẫn đầy đủ.
+
+## Chế độ gộp, lịch sử sai và xuất bài ôn
+
+- Nút **Tất cả bộ đề · gộp theo Part** nằm cạnh các nút chọn bộ. Câu hỏi giữ nguyên ID và bộ nguồn; làm ở chế độ gộp hay riêng đều cập nhật cùng một đáp án, lịch sử sai và đánh dấu trên cùng trình duyệt/địa chỉ mở app.
+- Bộ lọc **Đang sai** xem các đáp án hiện tại chưa đúng. **Đã từng sai** giữ cả câu đã luyện lại đúng hoặc đang chờ làm lại.
+- **Làm lại câu sai** chỉ mở khóa các câu cần luyện trong Part/bộ lọc đề hiện tại. Lượt làm lại giữ danh sách riêng và chỉ hiển thị các câu cần làm lại trong nhóm. Dùng **Thoát lượt làm lại** để quay về danh sách thường.
+- **Xuất câu từng sai** cho chọn Part hiện tại hoặc tất cả Part của bộ đang chọn; ở chế độ gộp có thể xuất lịch sử của cả năm bộ. HTML mở đọc/in được; JSON có dữ liệu cấu trúc. Cả hai gồm câu hỏi, nội dung chung, các lựa chọn, audio/link nguồn, từng lần chọn sai, đáp án sai gần nhất, đáp án hiện tại, đáp án đúng và lời giải. Ảnh/audio vẫn là liên kết nguồn.
+- **Dữ liệu & sao lưu → Xóa toàn bộ tiến độ** xóa đáp án, lịch sử sai, đánh dấu, đáp án bổ sung và vị trí học của tất cả bộ trên origin hiện tại. Không xóa theme, audio cache hoặc các file sao lưu trên đĩa.
+- Theo yêu cầu bắt đầu lại từ đầu của người dùng, server local có một yêu cầu reset trong `work/study-reset-request.json`. Mỗi trình duyệt/origin áp dụng yêu cầu này đúng một lần khi mở bản local mới; các lần học sau lưu bình thường. Tệp này bị Git bỏ qua và không nằm trong bản hosted.
+
+## Bảo trì và hiệu năng
+
+`npm test` chạy các kiểm thử lưu tiến độ, chỉ mục, audio cache và nén/cache HTML. `npm run build` và `npm run check` vẫn là kiểm tra bản standalone.
+
+Chỉ mục mỗi bộ được tạo khi cần và dùng lại. Bản đồ câu hỏi, nút Part và thẻ trong cùng nhóm được tái sử dụng; chỉ trạng thái thay đổi mới cập nhật DOM. Server local phục vụ index.html bằng gzip khi trình duyệt hỗ trợ, dùng ETag để trả 304 và tự làm mới cache sau khi build lại. Không có thư viện runtime mới.
+
+**Audio speed** mở cấu hình dùng chung cho mọi bộ đề: chỉnh **All listening Parts** để áp dụng cùng tốc độ cho Part 1–4, hoặc chỉnh từng Part riêng. Thay đổi áp dụng ngay, lưu trên trình duyệt và giữ lại sau khi xóa tiến độ. **Restore defaults** khôi phục 1× / 1.2× / 1.1× / 1.1×. Nút gộp đề được rút gọn thành **Tất cả**; các mô tả Part và nhãn phụ cũ đã được bỏ.
