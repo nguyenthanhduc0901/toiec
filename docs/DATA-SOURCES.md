@@ -43,3 +43,15 @@ If links expire or the source blocks hotlinking, first inspect the current autho
 ## ETS 2023 acquisition — 2026-10-22
 
 The user explicitly approved creating and submitting ten blank full-test attempts for Tests 1–10 of 2023 in this session. The official workflow was driven through the user-authorized Edge DevTools connection. Public question payloads supplied content in canonical term_questions order. The official authenticated history/review pages supplied correct-choice markers and original explanation HTML. Records were joined by source question ID and subquestion index, with original question numbering verified. Only normalized question data is retained in Git; no account data, attempt identifiers or authentication material is included. This approval applies to these ten attempts only.
+
+## HACKER TOEIC 2 acquisition — 2026-10-26
+
+The user explicitly approved creating and submitting ten blank full-test attempts for HACKER TOEIC 2 Tests 1–10. The existing signed-in Edge profile was controlled through Chrome DevTools Protocol and JavaScript console commands, as requested, without Computer Use. Each test was submitted exactly once through the normal start/answer/submit controls. All ten completed review pages supplied original explanations and correct-choice markers. This approval applies only to this specific batch.
+
+Catalog URLs are hacker-2-test-{2..10}/ and hacker-2-test-1-2/ (Test 1 has the extra suffix). Canonical term_questions order is preserved, with unique hacker2-prefixed IDs. Review records are joined by source question ID and subquestion index, with original question numbers checked before merging.
+
+The source has five malformed choice labels, normalized by their existing index to A/B/C/D without reordering content or changing correct indexes: Test 3 Q109 D was Đ; Test 5 Q34 D was blank; Test 5 Q36 D had trailing whitespace; Test 9 Q24 B and C were blank.
+
+Test 7 Q93 (source group 78414, subindex 1) has all four choices and a full explanation, but the official review marks none as correct. Its answer remains null. Although its explanation bolds an option, other source explanations contain formatting that disagrees with machine answer keys, so emphasis is not accepted as an answer key. This exact source omission is declared and checked explicitly; other missing keys fail validation. Totals: 2,000 questions, 1,999 original answers, 2,000 explanations.
+
+Only normalized study content and public media links enter Git. Browser credentials, account details, attempt identifiers, raw authenticated pages and temporary review payloads stay out of the repository.

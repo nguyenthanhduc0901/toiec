@@ -9,8 +9,9 @@ const read=p=>fs.readFileSync(path.join(root,p),'utf8');
 const library=loadLibrary(root),counts=[60,250,390,300,300,160,540];
 const allowIncomplete=process.argv.includes('--allow-incomplete');
 const globalIds=new Set();let answerCount=0,explanationCount=0;
+const knownMissing=new Set(['hacker2-t7-p4-g78414-s1']);
 for(const [year,data]of Object.entries(library.datasets)){
- assert.equal(data.year,Number(year));
+ if(year==='hacker2'){assert.equal(data.collection,year);assert.equal(data.progressKey,'toeic-studio-hacker2-v1');assert.equal(data.label,'HACKER TOEIC 2');}else assert.equal(data.year,Number(year));
  assert.equal(data.questions.length,2000,year+' question count');assert.equal(data.tests.length,10);
  assert.equal(new Set(data.questions.map(q=>q.id)).size,2000);
  const groups=new Map(data.groups.map(g=>[g.id,g]));assert.equal(groups.size,data.groups.length);
@@ -26,16 +27,17 @@ for(const [year,data]of Object.entries(library.datasets)){
  for(const q of data.questions){
   assert.ok(!globalIds.has(q.id),'IDs must be unique across years');globalIds.add(q.id);
   const g=groups.get(q.group);assert.ok(g);assert.equal(g.test,q.test);assert.equal(g.part,q.part);assert.ok(g.numbers.includes(q.original));
-  assert.ok(g.source.includes('-'+year+'/'));
+  assert.ok(year==='hacker2'?/^https:\/\/zenlishtoeic\.vn\/stm-quizzes\/hacker-2-test-/.test(g.source):g.source.includes('-'+year+'/'));
   assert.equal(q.choices.length,q.part===2?3:4);
   assert.deepEqual(q.choices.map(c=>c.label),q.part===2?['A','B','C']:['A','B','C','D']);
   assert.ok(q.correct===null||Number.isInteger(q.correct)&&q.correct>=0&&q.correct<q.choices.length);
   assert.equal(typeof q.explanation,'string');if(q.correct!==null)answerCount++;if(q.explanation)explanationCount++;
   if(q.part<=4)assert.ok(g.audio.startsWith('https://'));
-  if(!allowIncomplete||year==='2024')assert.ok(q.correct!==null&&q.explanation.trim(),'Original answer/explanation missing: '+q.id);
+  if(knownMissing.has(q.id)){assert.equal(q.correct,null);assert.ok(q.explanation.trim());}else if(!allowIncomplete||year==='2024')assert.ok(q.correct!==null&&q.explanation.trim(),'Original answer/explanation missing: '+q.id);
  }
+ if(year==='hacker2')assert.deepEqual(data.missingAnswers,[...knownMissing]);
  if(year==='2024')assert.ok(data.questions.every(q=>q.id.startsWith('t')),'Keep stable 2024 IDs');
- else assert.ok(data.questions.every(q=>q.id.startsWith('y'+year+'-')),'Use year-prefixed IDs');
+ else assert.ok(data.questions.every(q=>q.id.startsWith(year==='hacker2'?'hacker2-':'y'+year+'-')),'Use collection-prefixed IDs');
  console.log(year+': '+data.questions.length+' questions, '+data.questions.filter(q=>q.correct!==null).length+' original answers, '+data.questions.filter(q=>q.explanation).length+' explanations');
 }
 new vm.Script(read('src/app.js'),{filename:'src/app.js'});
@@ -45,4 +47,4 @@ const embedded=html.match(/<script id="dataset" type="application\/json">([\s\S]
 const expected=read('src/template.html').replace('/*__CSS__*/',()=>read('src/app.css')+'\n.choice:disabled{opacity:1;cursor:default}').replace('/*__DATA__*/',()=>serializeLibrary(library)).replace('/*__JS__*/',()=>read('src/audio-cache.js')+'\n'+read('src/app.js'));
 assert.equal(html,expected,'index.html is stale; run npm run build');
 for(const year of Object.keys(library.datasets))assert.ok(html.includes('data-year="'+year+'"'));
-console.log(`PASS: ${Object.keys(library.datasets).length} years, ${globalIds.size.toLocaleString('en-US')} questions, ${answerCount} answers, ${explanationCount} explanations, canonical order, groups, media URLs and reproducible build.`);
+console.log(`PASS: ${Object.keys(library.datasets).length} collections, ${globalIds.size.toLocaleString('en-US')} questions, ${answerCount} answers, ${explanationCount} explanations, canonical order, groups, media URLs and reproducible build.`);

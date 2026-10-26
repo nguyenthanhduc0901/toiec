@@ -90,3 +90,11 @@ The format suffix must match the selected year (2023, 2024 or 2026). Validate ID
 ## Color vision support
 
 The header toggle sets `colorblind-theme` on the document root and persists its boolean separately as `toeic-studio-colorblind-theme`. It changes presentation without rendering or touching yearly progress or audio. Blue/solid/check marks identify correct answers; brown-orange/dashed/cross marks identify wrong ones. Neutral/dotted/question marks identify ungraded answers. Map buttons retain question numbers and add status symbols, a download arrow for cached audio, and a star for bookmarks. Accessible map names include grading and bookmark status in both themes. Theme changes keep media, filters, question position and focus intact.
+
+## HACKER TOEIC 2 collection
+
+`data/hacker2.json` adds the `hacker2` dataset alongside the unchanged numeric ETS keys. Its metadata is `collection: "hacker2"`, `label: "HACKER TOEIC 2"`, `progressKey: "toeic-studio-hacker2-v1"`. `loadLibrary()` discovers this file along with etsYYYY.json. Existing bundle version 2 and legacy ETS files remain supported.
+
+The internal selection variable and `data-year` attributes also accept collection IDs. Display labels fall back to ETS + year for legacy data; persistence falls back to the original ETS key. HACKER progress export uses toeic-hacker2-tien-do.json and its own format/key; imports from other collections are rejected. The active-year key can now contain hacker2. Audio-cache manifest lookup already accepts string dataset keys.
+
+All ten tests contain 200 questions, with the same canonical Part totals/grouping as ETS. There are 1,999 machine-marked original answers and 2,000 original explanations. Source review Test 7 Q93 has no correct-choice marker. Its `correct` stays null and ID is declared in missingAnswers; validation accepts exactly this one known omission and requires its explanation. Formatting in explanations is not used to invent or override answer keys.

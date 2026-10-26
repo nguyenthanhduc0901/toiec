@@ -43,3 +43,5 @@
 .colorblind-theme .legend-dot.answered:before{content:'?'}.colorblind-theme .legend-dot.audio-ready:before{content:'↓'}
 .colorblind-theme .legend{font-size:11px}.colorblind-theme .question.is-current{border-color:#174f91}
 @media(max-width:800px){.topbar{height:auto;min-height:56px;gap:8px;flex-wrap:wrap;padding:10px 0}.topbar>div{flex-wrap:wrap;gap:4px}.topbar .quiet{font-size:10px}}
+
+.year-switch{flex-wrap:wrap}.year-switch button[data-year="hacker2"]{flex-basis:100%;font-size:12px}.collection h2{overflow-wrap:anywhere}

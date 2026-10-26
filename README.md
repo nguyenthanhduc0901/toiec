@@ -1,6 +1,6 @@
-# TOEIC Studio · ETS 2023, 2024 & 2026
+# TOEIC Studio · ETS 2023, 2024, 2026 & HACKER TOEIC 2
 
-Web luyện TOEIC cá nhân, gồm **10 đề mỗi năm 2023, 2024 và 2026**. Dùng nút **2023 / 2024 / 2026** để chọn năm; mỗi năm gộp câu theo từng Part và lưu tiến độ riêng. Có đủ **6.000 câu hỏi, 6.000 đáp án gốc và 6.000 lời giải**; chọn đáp án sẽ hiện ngay kết quả và lời giải.
+Web luyện TOEIC cá nhân, gồm **ETS 2023, ETS 2024, ETS 2026 và HACKER TOEIC 2**, mỗi bộ 10 đề. Chọn bộ đề ở thanh bên; mỗi bộ gộp câu theo từng Part và lưu tiến độ riêng. Có **8.000 câu hỏi, 7.999 đáp án gốc và 8.000 lời giải**. HACKER TOEIC 2 Test 7 câu 93 có lời giải nhưng nguồn không gắn đáp án đúng nên giữ chưa chấm; không tự suy đoán đáp án.
 
 ## Dùng trên máy khác
 
@@ -25,7 +25,7 @@ cd toiec
 | 6 | Hoàn thành đoạn văn | 160 |
 | 7 | Đọc hiểu | 540 |
 
-- Chọn năm **2023 / 2024 / 2026** ở thanh bên. Trong mỗi Part của năm đã chọn, luyện liên tục Test 1 → Test 10.
+- Chọn **2023 / 2024 / 2026 / HACKER TOEIC 2** ở thanh bên. Trong mỗi Part của bộ đã chọn, luyện liên tục Test 1 → Test 10.
 - Tiến độ 2024 cũ tiếp tục dùng được; chuyển năm không xóa hoặc trộn lựa chọn, đánh dấu và vị trí học.
 - Chọn một đáp án để hiện ngay đáp án đúng và lời giải nguồn. Lựa chọn khóa sau lượt đầu; mỗi câu có nút **Làm lại câu này** để xóa riêng lựa chọn và trả lời lại. Vẫn có nút làm lại toàn Part.
 - Giữ chung nội dung/audio cho các câu thuộc cùng một nhóm.
@@ -70,10 +70,11 @@ index.html                 Bản chạy ngay, được tạo bởi build
 src/template.html          Cấu trúc HTML và placeholder
 src/app.css                Giao diện responsive
 src/app.js                 Chọn câu, chấm, lời giải, audio, lưu tiến độ
+data/hacker2.json           HACKER TOEIC 2, 10 đề, 1 đáp án nguồn bị thiếu
 data/ets2023.json           Bộ đề 2023 đã chuẩn hóa
 data/ets2024.json           Bộ đề đã chuẩn hóa, đáp án và lời giải đầy đủ
 data/ets2026.json           Bộ đề 2026 đã chuẩn hóa
-scripts/library.mjs        Gộp dữ liệu hai năm vào bản HTML
+scripts/library.mjs        Gộp các bộ đề vào bản HTML
 scripts/build.mjs          Đóng gói thành HTML độc lập
 scripts/check.mjs          Kiểm tra bộ đề, thứ tự, cấu trúc và bản build
 scripts/serve.mjs          Máy chủ local tùy chọn, chỉ lắng nghe loopback
@@ -85,6 +86,8 @@ docs/VALIDATION.md          Những gì đã kiểm thử và giới hạn
 
 ## Nguồn
 
-Nội dung, đáp án và lời giải được đọc từ [Zenlish](https://zenlishtoeic.vn/test-online-new/), phạm vi TEST 1–10 các năm 2023, 2024 và 2026. Bản này tổ chức lại để luyện tập cá nhân; không phải sản phẩm chính thức của Zenlish hoặc ETS. Không có đáp án/lời giải do AI suy đoán.
+Nội dung, đáp án và lời giải được đọc từ [Zenlish](https://zenlishtoeic.vn/test-online-new/), phạm vi TEST 1–10 các năm 2023, 2024, 2026 và HACKER TOEIC 2. Bản này tổ chức lại để luyện tập cá nhân; không phải sản phẩm chính thức của Zenlish hoặc ETS. Không có đáp án/lời giải do AI suy đoán.
 
 Repository không chứa cookie, token, thông tin tài khoản, lịch sử bài làm hoặc hồ sơ Edge. Nguồn có thể đổi hoặc chặn URL media trong tương lai; xem hướng dẫn cập nhật trong `docs/DATA-SOURCES.md`.
+
+Tiến độ HACKER TOEIC 2 dùng khóa riêng `toeic-studio-hacker2-v1`; xuất ra `toeic-hacker2-tien-do.json`. File ETS cũ tiếp tục nhập đúng bộ như trước. Web online: https://toeic-ducthanh.pages.dev/; xem docs/HOSTING.md để cập nhật bản deploy.

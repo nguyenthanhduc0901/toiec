@@ -69,3 +69,12 @@ For UI changes, rerun relevant browser checks. For changes only to documentation
 - Removed map pagination and its state, markup, and styles. Every question matching the current Part and filters is shown in one grid.
 - Browser verified 250 map buttons for Part 2, 540 for Part 7, and 54 for Part 7 filtered to Test 1. Selecting question 540 worked and disabled Next at the end.
 - At 390px, all 250 Part 2 buttons remained in the grid without horizontal page overflow. Build and dataset checks passed; no answers were changed.
+
+
+## HACKER TOEIC 2 — 2026-10-26
+
+- Console/CDP collection completed ten separately approved blank attempts, one per test. Normalized 2,000 questions in canonical order; joined reviews by questionId/subIndex and checked original numbering. Source-only omission: Test 7 Q93 stays null/ungraded with its explanation retained.
+- Build/check pass: four collections, 8,000 questions, 7,999 original answers, 8,000 original explanations. ETS JSON files are unchanged. The six existing audio-cache queue/disk/range tests pass.
+- Edge CDP QA confirms collection labels, first-answer lock, correct/wrong feedback, explanation display, per-question retry, bookmarks, filters, Test 10 final-question guard, grouped Parts 3/4/6/7, unchanged shared audio DOM, Part 2 1.2x and 1.9s start, export format and import validation including foreign-key rejection.
+- Switching all ETS years keeps legacy storage keys; switching back restores HACKER answers independently. Browser storage for all tested collections and active selection is restored after QA.
+- Desktop and 390px mobile screenshots inspected; no page-width overflow. Original Test 1 image loads and audio reaches readyState 4 with no media error. Local audio-cache manifest accepts hacker2 collection.
